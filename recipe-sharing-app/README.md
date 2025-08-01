@@ -3,8 +3,8 @@
 ## Project Overview
 This project is an enhanced Recipe Sharing Application built with React, Zustand for state management, and React Router for navigation. It allows users to add, view, edit, and delete recipes.
 
-## Task 2: Implementing Advanced Search and Filtering Capabilities
-This task adds a dynamic search bar that filters the list of recipes in real-time based on the user's input. The filtering logic is implemented within the Zustand store for centralized state management.
+## Task 3: Implementing User Favorites and Personalized Recipe Recommendations
+This task introduces user-specific features, allowing users to save their favorite recipes and receive personalized recommendations. This makes the application more interactive and tailored to individual preferences.
 
 ## Features
 - Add new recipes (title and description)
@@ -14,7 +14,9 @@ This task adds a dynamic search bar that filters the list of recipes in real-tim
 - Delete recipes
 - State management using Zustand
 - Routing using React Router
-- **Advanced Search and Filtering:** Search recipes by title or description.
+- Advanced Search and Filtering: Search recipes by title or description.
+- **User Favorites:** Users can mark recipes as favorites.
+- **Personalized Recommendations:** The app suggests recipes based on user favorites.
 
 ## Technologies Used
 - React (with Vite)
@@ -54,6 +56,9 @@ recipe-sharing-app/
 │   │   ├── AddRecipeForm.jsx
 │   │   ├── DeleteRecipeButton.jsx
 │   │   ├── EditRecipeForm.jsx
+│   │   ├── FavoriteButton.jsx
+│   │   ├── FavoritesList.jsx
+│   │   ├── RecommendationsList.jsx
 │   │   ├── RecipeDetails.jsx
 │   │   ├── RecipeList.jsx
 │   │   ├── SearchBar.jsx
@@ -67,6 +72,10 @@ recipe-sharing-app/
 ├── package-lock.json
 ├── README.md
 └── vite.config.js
+
+
+## Author
+[Your Name]
 
 ## Author
 [Yeabsira Zewdu]

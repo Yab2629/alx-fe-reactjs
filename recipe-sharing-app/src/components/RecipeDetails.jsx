@@ -1,7 +1,8 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom'; // Import useParams and Link
+import { useParams, Link } from 'react-router-dom';
 import useRecipeStore from './recipeStore';
 import DeleteRecipeButton from './DeleteRecipeButton';
+import FavoriteButton from './FavoriteButton'; 
 
 const RecipeDetails = () => {
   const { recipeId } = useParams();
@@ -22,7 +23,6 @@ const RecipeDetails = () => {
       <h1 style={{ color: '#007bff', fontSize: '2em', marginBottom: '10px' }}>{recipe.title}</h1>
       <p style={{ color: '#555', fontSize: '1.1em', marginBottom: '20px' }}>{recipe.description}</p>
       <div style={{ display: 'flex', gap: '10px' }}>
-        {/* Link to the edit form */}
         <Link
           to={`/recipe/${recipe.id}/edit`}
           style={{
@@ -40,8 +40,11 @@ const RecipeDetails = () => {
         >
           Edit Recipe
         </Link>
-        {/* Delete button */}
         <DeleteRecipeButton recipeId={recipe.id} />
+        {
+          
+        }
+        <FavoriteButton recipeId={recipe.id} />
       </div>
     </div>
   );
