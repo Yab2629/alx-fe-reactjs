@@ -39,22 +39,21 @@ This initial task focuses on creating the project structure and installing neces
     The application will typically open in your browser at `http://localhost:5173`.
 
 ## File Structure
-
-github-user-search/
-├── public/
-├── src/
-│   ├── components/
-│   │   └── (future components will go here)
-│   ├── services/
-│   │   └── githubService.js
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── (other files like App.css, index.css)
-├── .env
-├── .gitignore
-├── index.html
-├── package.json
-└── vite.config.js
+    github-user-search/
+    ├── public/
+    ├── src/
+    │   ├── components/
+    │   │   └── (future components will go here)
+    │   ├── services/
+    │   │   └── githubService.js
+    │   ├── App.jsx
+    │   ├── main.jsx
+    │   └── (other files like App.css, index.css)
+    ├── .env
+    ├── .gitignore
+    ├── index.html
+    ├── package.json
+    └── vite.config.js
 
 
 ## Author
