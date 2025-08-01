@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import './App.css';
+import SearchBar from './components/SearchBar';
+import SearchResults from './components/SearchResults';
+import { fetchUserData } from './services/githubService';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
+  const handleSearch = async (username) => {
+    setLoading(true);
+    setError(false);
+    setUser(null);
+
+    const userData = await fetchUserData(username);
+
+    if (userData) {
+      setUser(userData);
+    } else {
+      setError(true);
+    }
+    setLoading(false);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <header className="App-header">
+        <h1>GitHub User Search</h1>
+      </header>
+      <main>
+        <SearchBar onSearch={handleSearch} />
+        <SearchResults user={user} loading={loading} error={error} />
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
