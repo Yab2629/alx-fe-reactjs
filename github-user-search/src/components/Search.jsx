@@ -31,7 +31,8 @@ const Search = () => {
     }
 
     if (error) {
-      return <p>Looks like we can't find the user.</p>;
+  
+      return <p>Looks like we cant find the user.</p>;
     }
 
     if (user) {
@@ -68,4 +69,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default Search
