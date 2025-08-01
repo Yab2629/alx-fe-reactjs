@@ -12,7 +12,6 @@ const Search = () => {
   const [hasMore, setHasMore] = useState(false);
 
   const handleSearch = async (isNewSearch = true) => {
-  
     if (isNewSearch) {
       setLoading(true);
       setError(false);
@@ -33,7 +32,7 @@ const Search = () => {
 
       if (userData && userData.items) {
         setUsers(prevUsers => isNewSearch ? userData.items : [...prevUsers, ...userData.items]);
-        setHasMore(userData.items.length === 20); 
+        setHasMore(userData.items.length === 20); // Check if we should show a "load more" button
       } else {
         setUsers([]);
         setError(true);
@@ -85,31 +84,31 @@ const Search = () => {
             className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
-        <button 
-          type="submit" 
+        <button
+          type="submit"
           className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-200"
         >
           Search
         </button>
       </form>
-      
+
       {loading && <p className="text-gray-400 text-center">Loading...</p>}
       {error && <p className="text-red-500 text-center">Looks like we cant find the user.</p>}
-      
+
       {users.length > 0 && (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
             {users.map(user => (
               <div key={user.id} className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
-                <img 
-                  src={user.avatar_url} 
-                  alt={`${user.login}'s avatar`} 
+                <img
+                  src={user.avatar_url}
+                  alt={`${user.login}'s avatar`}
                   className="w-24 h-24 rounded-full mb-4 border-2 border-gray-200"
                 />
                 <h3 className="text-xl font-semibold text-gray-800">{user.login}</h3>
-                <a 
-                  href={user.html_url} 
-                  target="_blank" 
+                <a
+                  href={user.html_url}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="mt-2 text-blue-500 hover:text-blue-700 transition-colors duration-200"
                 >
@@ -120,7 +119,7 @@ const Search = () => {
           </div>
           {hasMore && (
             <div className="text-center mt-6">
-              <button 
+              <button
                 onClick={handleLoadMore}
                 className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-200"
               >
