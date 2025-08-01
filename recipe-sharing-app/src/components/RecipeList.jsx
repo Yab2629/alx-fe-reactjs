@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; 
 import useRecipeStore from './recipeStore';
 
 const RecipeList = () => {
@@ -13,7 +14,12 @@ const RecipeList = () => {
         <div style={{ display: 'grid', gap: '10px' }}>
           {recipes.map(recipe => (
             <div key={recipe.id} style={{ borderBottom: '1px dashed #eee', paddingBottom: '10px', marginBottom: '10px' }}>
-              <h3 style={{ color: '#007bff', fontSize: '1.2em', marginBottom: '5px' }}>{recipe.title}</h3>
+              { 
+                
+              }
+              <Link to={`/recipe/${recipe.id}`} style={{ textDecoration: 'none', color: '#007bff' }}>
+                <h3 style={{ fontSize: '1.2em', marginBottom: '5px' }}>{recipe.title}</h3>
+              </Link>
               <p style={{ color: '#555', fontSize: '0.9em' }}>{recipe.description}</p>
             </div>
           ))}
