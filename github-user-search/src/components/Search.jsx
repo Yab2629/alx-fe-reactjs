@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { searchUsers } from '../services/githubService';
+import { searchUsers, fetchUserData } from '../services/githubService';
 
 const Search = () => {
   const [username, setUsername] = useState('');
@@ -32,7 +32,7 @@ const Search = () => {
 
       if (userData && userData.items) {
         setUsers(prevUsers => isNewSearch ? userData.items : [...prevUsers, ...userData.items]);
-        setHasMore(userData.items.length === 20); // Check if we should show a "load more" button
+        setHasMore(userData.items.length === 20); 
       } else {
         setUsers([]);
         setError(true);
