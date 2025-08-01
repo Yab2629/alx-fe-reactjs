@@ -1,25 +1,25 @@
 import axios from 'axios';
-
-const GITHUB_API_URL = 'https://api.github.com';
-export const searchUsers = async ({ username, location, min_repos, page = 1 }) => {
+export const searchUsers = async ({ username, location, minRepos, page = 1 }) => {
   try {
+
     let queryString = username ? `${username}` : '';
     if (location) {
       queryString += ` location:${location}`;
     }
-    if (min_repos) {
-      queryString += ` repos:>=${min_repos}`;
+    if (minRepos) {
+      queryString += ` repos:>=${minRepos}`;
     }
-    
+
     if (!queryString.trim()) {
       return null;
     }
 
-    const response = await axios.get(`${GITHUB_API_URL}/search/users`, {
+    const apiUrl = `https://api.github.com/search/users?q=${encodeURIComponent(queryString.trim())}`;
+    
+    const response = await axios.get(apiUrl, {
       params: {
-        q: queryString.trim(),
         page,
-        per_page: 20 
+        per_page: 20
       }
     });
 

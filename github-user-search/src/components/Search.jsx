@@ -11,8 +11,9 @@ const Search = () => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(false);
 
-  const handleSearch = async (isNewSearch = true) => {
-    if (isNewSearch) {
+const handleSearch = async (isNewSearch = true) => {
+    
+  if (isNewSearch) {
       setLoading(true);
       setError(false);
       setUsers([]);
@@ -26,7 +27,7 @@ const Search = () => {
       const userData = await searchUsers({
         username,
         location,
-        min_repos: minRepos,
+        minRepos, 
         page: currentPage
       });
 
