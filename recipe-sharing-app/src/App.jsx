@@ -1,14 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; 
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import RecipeList from './components/RecipeList';
 import AddRecipeForm from './components/AddRecipeForm';
 import RecipeDetails from './components/RecipeDetails';
 import EditRecipeForm from './components/EditRecipeForm';
+import SearchBar from './components/SearchBar';
 
 function App() {
   const Home = () => (
     <>
       <AddRecipeForm />
+      <SearchBar />
       <RecipeList />
     </>
   );
@@ -20,9 +22,6 @@ function App() {
           <h1 style={{ color: '#333', fontSize: '2.5em', marginBottom: '10px' }}>
             My Recipe Book
           </h1>
-          {
-            
-          }
           <nav>
             <Link to="/" style={{ textDecoration: 'none', color: '#007bff', fontWeight: 'bold' }}>
               Go to Home
