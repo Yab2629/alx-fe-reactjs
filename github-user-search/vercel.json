@@ -1,0 +1,17 @@
+{
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
+    }
+  },
+  "dev": {
+    "env": {
+      "NODE_ENV": "development"
+    }
+  },
+  "framework": "vite",
+  "rootDirectory": "github-user-search",
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
+}
